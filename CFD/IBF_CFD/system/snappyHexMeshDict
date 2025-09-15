@@ -264,52 +264,52 @@ addLayersControls
 
 
 // Generic mesh quality settings. At any undoable phase these determine
-// where to undo.
 meshQualityControls
 {
     //- Maximum non-orthogonality allowed. Set to 180 to disable.
-    maxNonOrtho 65;
+    maxNonOrtho          65;
 
     //- Max skewness allowed. Set to <0 to disable.
-    maxBoundarySkewness 20;
-    maxInternalSkewness 4;
+    maxBoundarySkewness  20;
+    maxInternalSkewness  4;
 
-    //- Max concaveness allowed. Is angle (in degrees) below which concavity
-    //  is allowed. 0 is straight face, <0 would be convex face.
+    //- Max concaveness allowed. Angle (in degrees) below which concavity
+    //  is allowed. 0 = straight face, <0 = convex face.
     //  Set to 180 to disable.
-    maxConcave 80;
+    maxConcave           80;
 
-    //- Minimum projected area v.s. actual area. Set to -1 to disable.
-    minFlatness 0.5;
+    //- Minimum projected area vs. actual area. Set to -1 to disable.
+    minFlatness          0.5;
 
-    //- Minimum cell pyramid volume relative to min bounding box length^3
-    //  Set to a fraction of the smallest cell volume expected.
-    //  Set to very negative number (e.g. -1e30) to disable.
-    minVol -1e30;
+    //- Minimum cell volume. Set very negative (e.g. -1e30) to disable.
+    minVol               -1e30;
 
-    minTetQuality 1e-30;
+    //- Minimum tet quality
+    minTetQuality        1e-30;
 
-    //- Minimum face twist. Set to <-1 to disable. dot product of face normal
-    //  and face centre triangles normal
-    minTwist 0.02;
+    //- Minimum face twist. dot product of face normal and face-centre
+    //  triangles normal. Set to <-1 to disable.
+    minTwist             0.02;
 
     //- Minimum normalised cell determinant
-    //  1 = hex, <= 0 = folded or flattened illegal cell
-    minDeterminant 0.001;
+    minDeterminant       0.001;
 
-    //- minFaceWeight (0 -> 0.5)
-    minFaceWeight 0.02;
+    //- Minimum face weight (0 -> 0.5)
+    minFaceWeight        0.02;
 
-    //- minVolRatio (0 -> 1)
-    minVolRatio 0.01;
+    //- Minimum volume ratio (0 -> 1)
+    minVolRatio          0.01;
+
+    //- NEW in OpenFOAM v2506 (required)
+    minArea              -1;     // [m^2] disable with -1
+    minFaceFlatness      0.2;    // reasonable default
+    minTriangleTwist     0.02;   // reasonable default
 
     // Advanced
-
-    //- Number of error distribution iterations
-    nSmoothScale 4;
-    //- Amount to scale back displacement at error points
-    errorReduction 0.75;
+    nSmoothScale         4;      // iterations for error distribution
+    errorReduction       0.75;   // scaling back displacement at error points
 }
+
 
 
 // Advanced

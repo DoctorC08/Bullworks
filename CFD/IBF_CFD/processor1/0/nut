@@ -33,12 +33,12 @@ boundaryField
     inlet
     {
         type            calculated;
-        value           nonuniform List<scalar> 0;
+        value           uniform 0;
     }
     outlet
     {
         type            calculated;
-        value           uniform 0;
+        value           nonuniform List<scalar> 0;
     }
     lowerWall
     {
@@ -50,6 +50,11 @@ boundaryField
         type            symmetryPlane;
     }
     procBoundary1to0
+    {
+        type            processor;
+        value           uniform 0;
+    }
+    procBoundary1to2
     {
         type            processor;
         value           uniform 0;

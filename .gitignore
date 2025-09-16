@@ -15,6 +15,9 @@ Thumbs.db
 ehthumbs.db
 Desktop.ini
 
+# I have extra set of files oops
+OpenFOAM-13
+
 # Decomposed processor directories
 processor*
 

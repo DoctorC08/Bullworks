@@ -16,32 +16,36 @@ FoamFile
 
 solver          incompressibleFluid;
 
-startFrom       startTime;
+startFrom       startTime; /* Set to latestTime if we want to pause and resume*/
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         500;
+endTime         10; /* Run for 10 seconds */
 
-deltaT          1;
+deltaT          0.001;
+
+adjustTimeStep  true;
+
+maxCo           0.5;
 
 writeControl    timeStep;
 
-writeInterval   500;
+writeInterval   0.1;
 
-purgeWrite      0;
+purgeWrite      200; /* For IBF it's about 500mb per file, so let's cap at 100gb stored*/
 
-writeFormat     binary;
+writeFormat     binary; /* Use binary to conserve storage*/
 
 writePrecision  6;
 
-writeCompression off;
+writeCompression on;
 
 timeFormat      general;
 
 timePrecision   6;
 
-runTimeModifiable true;
+runTimeModifiable true; /* This allows for modification in the middle of a run */
 
 // ************************************************************************* //

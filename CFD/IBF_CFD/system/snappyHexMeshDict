@@ -114,6 +114,7 @@ castellatedMeshControls
         {
             // Surface-wise min and max refinement level
             level (4 6); // Original (6 8)
+            cellZone IBF_object;
         }
     }
 

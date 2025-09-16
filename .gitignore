@@ -32,3 +32,8 @@ processor*
 log*
 postProcessing/
 reconstructPar*
+
+# Large polyMeshFiles 
+*/constant/polyMesh/faces
+*/constant/polyMesh/points
+*/constant/polyMeshSave

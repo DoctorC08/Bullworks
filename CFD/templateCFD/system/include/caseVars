@@ -1,0 +1,21 @@
+/*
+Used in k, nut, nuTilda, p, U
+*/
+path_name    "IBF_.*"; 
+
+/*
+k (turbulent kinetic energy) = 3/2 (U_avg * I)^2 where U_avg is avg. velocity (found in U file) and I is turbulence intensity (~1-5%)
+*/
+k_value     0.24;
+
+/* 
+nuTilda can be approximated as 0.1 * v where v is the kinematic viscosity and at STP 1.5*10^(-5) m^2/s 
+*/
+nuTilda_value       0.05;
+
+/* IMPORTANT: This is in m/s */
+flowVeloValue       (20 0 0);
+
+numCores        12;
+
+triSurfaceMeshName      "IBF_scaled.stl";

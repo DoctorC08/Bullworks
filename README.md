@@ -21,7 +21,7 @@
     - Set numberOfSumdomains equal to the number of cores you want used. 
     - Run ```decomposePar```
 
-6) Run ```mpirun -np (insert num cores) snappyHexMesh -parallel```
+6) Run ```mpirun -np insert_n_cores snappyHexMesh -parallel```
 
 7) Setup 0 directory (according to Gemini)
     - U (Velocity): For an external aerodynamics problem, the object's surface is usually a noSlip wall, meaning the fluid velocity at the surface is zero. The inlet is typically a fixedValue with a uniform velocity vector (e.g., (26.82 0 0) for a 60 mph flow). The outlet can be inletOutlet or zeroGradient.
@@ -46,4 +46,6 @@
     - To run CFD on single core use: ```simpleFoam```
     - For multiple cores follow same idea as before: 
     ```decomposePar``` 
-    ```mpirun --allow-run-as-root -np (num cores) simpleFoam -parallel```
+
+    ```mpirun -np n_cores simpleFoam -parallel```
+    ```mpirun --allow-run-as-root -np n_cores simpleFoam -parallel```

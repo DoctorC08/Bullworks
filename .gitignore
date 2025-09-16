@@ -14,3 +14,21 @@
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+
+# Extra copy of OpenFOAM repo in my folder (oops)
+OpenFOAM-13/
+
+# Decomposed processor directories
+processor*
+
+# Reconstructed mesh and solution time steps
+[0-9]*
+[0-9]*.*
+
+# Reconstructed polyMesh
+*/*/polyMesh
+
+# Other temporary or large files
+log*
+postProcessing/
+reconstructPar*

@@ -37,3 +37,4 @@ reconstructPar*
 */constant/polyMesh/faces
 */constant/polyMesh/points
 */constant/polyMeshSave
+*/constant/polyMesh/*

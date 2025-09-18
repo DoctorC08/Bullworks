@@ -34,7 +34,19 @@ boundaryField
     {
         type            zeroGradient;
     }
-    wall
+    front
+    {
+        type            empty;
+    }
+    back
+    {
+        type            empty;
+    }
+    lowerWall
+    {
+        type            empty;
+    }
+    upperWall
     {
         type            empty;
     }

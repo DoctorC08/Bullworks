@@ -30,16 +30,31 @@ boundaryField
     {
         type            zeroGradient;
     }
-    walls
+    front
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    back
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    lowerWall
+    {
+        type            nutkWallFunction;
+        value           uniform 0;
+    }
+    upperWall
     {
         type            nutkWallFunction;
         value           uniform 0;
     }
     IBF_snappyHexMesh
-    {
-        type            nutkWallFunction;
-        value           uniform 0;
-    }
+{
+    type nutkWallFunction;
+    value uniform 0;
+}
     defaultFaces
     {
         type            empty;

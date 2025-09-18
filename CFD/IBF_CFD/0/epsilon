@@ -24,7 +24,7 @@ boundaryField
     inlet
     {
         type            fixedValue;
-        value           uniform 0.7188.; // Should be the same as internalField
+        value           uniform 0.7188; // Should be the same as internalField
     }
     outlet
     {
@@ -33,27 +33,27 @@ boundaryField
     front
     {
         type            freestream;
-        freestreamValue uniform 0.7188.;
+        freestreamValue uniform 0.7188;
     }
     back
     {
         type            freestream;
-        freestreamValue uniform 0.7188.;
+        freestreamValue uniform 0.7188;
     }
     lowerWall
     {
         type            freestream;
-        freestreamValue uniform 0.7188.;
+        freestreamValue uniform 0.7188;
     }
     upperWall
     {
         type            freestream;
-        freestreamValue uniform 0.7188.;
+        freestreamValue uniform 0.7188;
     }
     IBF_snappyHexMesh
     {
         type            epsilonWallFunction;
-        value           uniform 0.7188.;
+        value           uniform 0.7188;
     }
     defaultFaces
     {

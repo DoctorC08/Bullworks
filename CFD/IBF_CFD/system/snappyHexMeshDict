@@ -16,7 +16,7 @@ FoamFile
 // Which of the steps to run
 castellatedMesh true;
 snap            true;
-addLayers       false;
+addLayers       true;
 
 
 // Geometry. Definition of all surfaces. All surfaces are of class
@@ -37,8 +37,8 @@ geometry
     refinementBox
     {
         type box;
-        min (-2 -1 -0.75);
-        max ( 2  2 0.75);
+        min (-3 -1.5 -1);
+        max ( 3  4 1);
     }
 };
 
@@ -47,7 +47,7 @@ geometry
 // Settings for the castellatedMesh generation.
 castellatedMeshControls
 {
-    locationInMesh (0 -2 0);
+    locationInMesh (0 0 0);
 
     // Refinement parameters
     // ~~~~~~~~~~~~~~~~~~~~~
@@ -62,7 +62,7 @@ castellatedMeshControls
     // Note that this is the number of cells before removing the part which
     // is not 'visible' from the keepPoint. The final number of cells might
     // actually be a lot less.
-    maxGlobalCells 7000000;
+    maxGlobalCells 20000000;
 
     // The surface refinement loop might spend lots of iterations refining just a
     // few cells. This setting will cause refinement to stop if <= minimumRefine
@@ -113,7 +113,7 @@ castellatedMeshControls
         IBF_snappyHexMesh
         {
             // Surface-wise min and max refinement level
-            level (4 6); // Original (6 8)
+            level (7 9); // Original (6 8)
             cellZone IBF_object;
         }
     }
@@ -140,7 +140,7 @@ castellatedMeshControls
         refinementBox
         {
             mode inside;
-            levels ((5 5));
+            levels ((7 7));
         }
     }
 
@@ -196,25 +196,25 @@ addLayersControls
     // Per final patch (so not geometry!) the layer information
     layers
     {
-        "(lowerWall|IBF_snappyHexMesh).*"
+        IBF_snappyHexMesh
         {
-            nSurfaceLayers 1;
+            nSurfaceLayers 10;
         }
     }
 
     // Expansion factor for layer mesh
-    expansionRatio 1.0;
+    expansionRatio 1.2;
 
     // Wanted thickness of final added cell layer. If multiple layers
     // is the thickness of the layer furthest away from the wall.
     // Relative to undistorted size of cell outside layer.
     // See relativeSizes parameter.
-    finalLayerThickness 0.3;
+    finalLayerThickness 0.05;
 
     // Minimum thickness of cell layer. If for any reason layer
     // cannot be above minThickness do not add layer.
     // Relative to undistorted size of cell outside layer.
-    minThickness 0.1;
+    minThickness 0.01;
 
     // If points get not extruded do nGrow layers of connected faces that are
     // also not grown. This helps convergence of the layer addition process

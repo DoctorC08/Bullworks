@@ -36,19 +36,19 @@ boundaryField
     }
     front
     {
-        type            empty;
+        type            freestream;
     }
     back
     {
-        type            empty;
+        type            freestream;
     }
     lowerWall
     {
-        type            empty;
+        type            freestream;
     }
     upperWall
     {
-        type            empty;
+        type            freestream;
     }
 }
 

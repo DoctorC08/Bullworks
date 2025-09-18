@@ -22,7 +22,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         10; /* Run for 10 seconds */
+endTime         1; /* Run for 10 seconds */
 
 deltaT          0.001;
 

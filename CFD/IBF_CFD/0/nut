@@ -23,8 +23,7 @@ boundaryField
 {
     inlet
     {
-        type            calculated;
-        value           uniform 0;
+        type            zeroGradient;
     }
     outlet
     {
@@ -32,35 +31,27 @@ boundaryField
     }
     front
     {
-        type            nutkWallFunction;
-        value           uniform 0;
+        type            freestream;
     }
     back
     {
-        type            nutkWallFunction;
-        value           uniform 0;
+        type            freestream;
     }
     lowerWall
     {
-        type            nutkWallFunction;
-        value           uniform 0;
+        type            freestream;
     }
     upperWall
     {
-        type            nutkWallFunction;
-        value           uniform 0;
+        type            freestream;
     }
     IBF_snappyHexMesh
     {
-        type nutkWallFunction;
-        value uniform 0;
+        type            nutkWallFunction;
+        value           uniform 0;
     }
     defaultFaces
     {
         type            empty;
     }
 }
-
-
-// ************************************************************************* //
-

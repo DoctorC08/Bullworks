@@ -37,18 +37,22 @@ boundaryField
     front
     {
         type            freestream;
+        freestreamPressure 0;
     }
     back
     {
         type            freestream;
+        freestreamPressure 0;
     }
     lowerWall
     {
         type            freestream;
+        freestreamPressure 0;
     }
     upperWall
     {
         type            freestream;
+        freestreamPressure 0;
     }
 }
 

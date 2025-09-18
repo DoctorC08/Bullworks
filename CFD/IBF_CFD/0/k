@@ -32,23 +32,23 @@ boundaryField
     }
     front
     {
-        type            kqRWallFunction;
-        value           uniform 0.6735;
+        type            freestream;
+        freestreamValue uniform 0.6735;
     }
     back
     {
-        type            kqRWallFunction;
-        value           uniform 0.6735;
+        type            freestream;
+        freestreamValue uniform 0.6735;
     }
     lowerWall
     {
-        type            kqRWallFunction;
-        value           uniform 0.6735;
+        type            freestream;
+        freestreamValue uniform 0.6735;
     }
     upperWall
     {
-        type            kqRWallFunction;
-        value           uniform 0.6735;
+        type            freestream;
+        freestreamValue uniform 0.6735;
     }
     IBF_snappyHexMesh
     {

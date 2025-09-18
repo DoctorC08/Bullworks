@@ -37,18 +37,22 @@ boundaryField
     front
     {
         type            freestream;
+        freestreamVelocity uniform (13.4 0 0);
     }
     back
     {
         type            freestream;
+        freestreamVelocity uniform (13.4 0 0);
     }  
     lowerWall
     {
         type            freestream;
+        freestreamVelocity uniform (13.4 0 0);
     }
     upperWall
     {
         type            freestream;
+        freestreamVelocity uniform (13.4 0 0);
     }
 }
 

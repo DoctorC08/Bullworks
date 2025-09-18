@@ -17,7 +17,7 @@ FoamFile
 
 dimensions      [0 2 -1 0 0 0 0];
 
-internalField   uniform 0;
+internalField   uniform 0.001;
 
 boundaryField
 {
@@ -31,19 +31,23 @@ boundaryField
     }
     front
     {
-        type            freestream;
+        type            calculated;
+        value           uniform 0;
     }
     back
     {
-        type            freestream;
+        type            calculated;
+        value           uniform 0;
     }
     lowerWall
     {
-        type            freestream;
+        type            calculated;
+        value           uniform 0;
     }
     upperWall
     {
-        type            freestream;
+        type            calculated;
+        value           uniform 0;
     }
     IBF_snappyHexMesh
     {

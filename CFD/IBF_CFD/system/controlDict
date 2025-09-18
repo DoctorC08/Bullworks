@@ -30,7 +30,7 @@ adjustTimeStep  true;
 
 maxCo           0.5;
 
-writeControl    timeStep;
+writeControl    adjustableRunTime;
 
 writeInterval   0.1;
 

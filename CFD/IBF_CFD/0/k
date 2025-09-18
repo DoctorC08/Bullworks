@@ -1,12 +1,13 @@
 /*--------------------------------*- C++ -*----------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  13
-     \\/     M anipulation  |
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
+    version     2.0;
     format      ascii;
     class       volScalarField;
     location    "0";
@@ -16,46 +17,32 @@ FoamFile
 
 dimensions      [0 2 -2 0 0 0 0];
 
-
-/*
-k (turbulent kinetic energy) = 3/2 (U_avg * I)^2 where U_avg is avg. velocity (found in U file) and I is turbulence intensity (~1-5%)
-*/
-internalField   uniform 0.24; /* Change this */
+internalField   uniform 0.6735;
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-        value           uniform 0.24; /* Change this */
+        value           uniform 0.6735;
     }
     outlet
     {
-        type            inletOutlet;
-        inletValue      uniform 0.24; /* Change this */
-        value           uniform 0.24; /* Change this */
+        type            zeroGradient;
     }
-    lowerWall
+    walls
     {
         type            kqRWallFunction;
-        value           uniform 0.24; /* Change this */
+        value           uniform 0.6735;
     }
-    "IBF_.*"
+    IBF_snappyHexMesh
     {
         type            kqRWallFunction;
-        value           uniform 0.24; /* Change this */
+        value           uniform 0.6735;
     }
-    upperWall
+    defaultFaces
     {
-        type            symmetryPlane;
-    }
-    "(front|back)"
-    {
-        type            symmetryPlane;
-    }
-    "proc.*"
-    {
-        type            processor;
+        type            empty;
     }
 }
 

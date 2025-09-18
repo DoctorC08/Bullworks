@@ -37,7 +37,7 @@ boundary
 (
     front
     {
-        type symmetryPlane;
+        type wall;
         faces
         (
             (0 4 7 3)
@@ -46,7 +46,7 @@ boundary
     }
     back
     {
-        type symmetryPlane;
+        type wall;
         faces
         (
             (2 6 5 1)
@@ -82,7 +82,7 @@ boundary
     }
     upperWall
     {
-        type symmetryPlane;
+        type wall;
         faces
         (
             (0 3 2 1)

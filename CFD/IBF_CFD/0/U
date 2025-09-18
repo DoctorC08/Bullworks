@@ -1,12 +1,13 @@
 /*--------------------------------*- C++ -*----------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  13
-     \\/     M anipulation  |
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v1912                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
+    version     2.0;
     format      ascii;
     class       volVectorField;
     location    "0";
@@ -14,53 +15,29 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-flowVelocity    (20 0 0); /* IMPORTANT: This is in m/s */
-
-pressure        0;
-
-turbulentKE     0.24;
-
-turbulentOmega  1.78;
-
 dimensions      [0 1 -1 0 0 0 0];
 
-internalField   uniform (20 0 0); /* Change this */
+internalField   uniform (0 0 0);
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-        value           uniform (20 0 0); /* Change this */
+        value           uniform (13.4 0 0); /* About 15mph */
     }
     outlet
     {
-        type            inletOutlet;
-        inletValue      uniform (0 0 0);
-        value           uniform (20 0 0); /* Change this */
-    }
-    lowerWall
-    {
-        type            fixedValue;
-        value           uniform (20 0 0); /* Change this */
+        type            zeroGradient;
     }
     "IBF_.*"
     {
         type            noSlip;
     }
-    upperWall
+    wall
     {
-        type            symmetryPlane;
-    }
-    "(front|back)"
-    {
-        type            symmetryPlane;
-    }
-    "proc.*"
-    {
-        type            processor;
+        type            empty;
     }
 }
-
 
 // ************************************************************************* //

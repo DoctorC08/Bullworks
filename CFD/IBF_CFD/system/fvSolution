@@ -20,14 +20,14 @@ solvers
     {
         solver          GAMG;
         tolerance       1e-07;
-        relTol          0.1;
+        relTol          0.01;
         smoother        GaussSeidel;
     }
 
     pFinal
     {
         $p;
-        tolerance       1e-6;
+        tolerance       1e-06;
         relTol          0;
     }
 
@@ -36,7 +36,7 @@ solvers
         $p;
     }
 
-    "(U|nuTilda)"
+    "(U|k|epsilon|omega)"
     {
         solver          smoothSolver;
         smoother        GaussSeidel;
@@ -47,7 +47,7 @@ solvers
 
 SIMPLE
 {
-    nNonOrthogonalCorrectors 0;
+    nNonOrthogonalCorrectors 2;
 }
 
 potentialFlow
@@ -57,9 +57,11 @@ potentialFlow
 
 relaxationFactors
 {
-    p               0.3;
-    U               0.5;
-    nuTilda         0.5;
+    p               0.5;
+    U               0.7;
+    k               0.7;
+    epsilon         0.7;
+    omega           0.7;
 }
 
 cache

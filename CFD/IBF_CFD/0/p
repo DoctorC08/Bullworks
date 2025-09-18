@@ -30,7 +30,7 @@ boundaryField
         type            fixedValue;
         value           uniform 0;
     }
-    "IBF_.*"
+    IBF_snappyHexMesh
     {
         type            zeroGradient;
     }

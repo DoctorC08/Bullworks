@@ -30,7 +30,7 @@ boundaryField
     {
         type            zeroGradient;
     }
-    "IBF_.*"
+    IBF_snappyHexMesh
     {
         type            noSlip;
     }

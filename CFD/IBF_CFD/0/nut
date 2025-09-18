@@ -51,10 +51,10 @@ boundaryField
         value           uniform 0;
     }
     IBF_snappyHexMesh
-{
-    type nutkWallFunction;
-    value uniform 0;
-}
+    {
+        type nutkWallFunction;
+        value uniform 0;
+    }
     defaultFaces
     {
         type            empty;

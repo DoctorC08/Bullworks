@@ -1,0 +1,68 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  13
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+#include "$FOAM_CASE/system/include/caseVars" 
+
+FoamFile
+{
+    format      ascii;
+    class       volVectorField;
+    location    "0";
+    object      U;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+flowVelocity    flowVeloValue; /* IMPORTANT: This is in m/s */
+
+pressure        0;
+
+turbulentKE     0.24;
+
+turbulentOmega  1.78;
+
+dimensions      [0 1 -1 0 0 0 0];
+
+internalField   uniform flowVeloValue; /* Change this */
+
+boundaryField
+{
+    inlet
+    {
+        type            fixedValue;
+        value           uniform flowVeloValue; /* Change this */
+    }
+    outlet
+    {
+        type            inletOutlet;
+        inletValue      uniform (0 0 0);
+        value           uniform flowVeloValue; /* Change this */
+    }
+    lowerWall
+    {
+        type            fixedValue;
+        value           uniform flowVeloValue; /* Change this */
+    }
+    path_name
+    {
+        type            noSlip;
+    }
+    upperWall
+    {
+        type            symmetryPlane;
+    }
+    "(front|back)"
+    {
+        type            symmetryPlane;
+    }
+    "proc.*"
+    {
+        type            processor;
+    }
+}
+
+
+// ************************************************************************* //

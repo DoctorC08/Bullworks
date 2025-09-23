@@ -35,7 +35,7 @@ blocks
 
 boundary
 (
-    front
+    frontWall
     {
         type patch;
         faces
@@ -43,7 +43,7 @@ boundary
             (0 3 7 4)
         );
     }
-    back
+    backWall
     {
         type patch;
         faces

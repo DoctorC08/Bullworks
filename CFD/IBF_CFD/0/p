@@ -23,34 +23,22 @@ boundaryField
 {
     inlet
     {
-        type            zeroGradient;
+        type            freestreamPressure;
+        value           0;
     }
     outlet
     {
-        type            fixedValue;
-        value           uniform 0;
+        type            freestreamPressure;
+        value           0;
     }
     IBF_snappyHexMesh
     {
         type            zeroGradient;
     }
-    front
+    ".*Wall"
     {
-        type            fixedValue;
-        value           uniform 0;
-    }
-    back
-    {
-        type            fixedValue;
-        value           uniform 0;
-    }
-    lowerWall
-    {
-        type            zeroGradient;
-    }
-    upperWall
-    {
-        type            zeroGradient;
+        type            freestreamPressure;
+        value           0;
     }
 }
 

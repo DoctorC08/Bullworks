@@ -11,19 +11,20 @@ FoamFile
     format      ascii;
     class       volScalarField;
     location    "0";
-    object      nut;
+    object      epsilon;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -1 0 0 0 0];
+dimensions      [0 2 -3 0 0 0 0];
 
-internalField   uniform 0.001;
+internalField   uniform 0.7188; // Calculated epsilon value
 
 boundaryField
 {
     inlet
     {
-        type            calculated;
+        type            fixedValue;
+        value           uniform 0.7188; // Should be the same as internalField
     }
     outlet
     {
@@ -31,16 +32,20 @@ boundaryField
     }
     ".*Wall"
     {
-        type            calculated;
-        value           uniform 0;
+        type            freestream;
+        freestreamValue uniform 0.7188;
     }
+    
     IBF_snappyHexMesh
     {
-        type            nutkWallFunction;
-        value           uniform 0;
+        type            epsilonWallFunction;
+        value           uniform 0.7188;
     }
     defaultFaces
     {
-        type            calculated;
+        type            empty;
     }
 }
+
+
+// ************************************************************************* //

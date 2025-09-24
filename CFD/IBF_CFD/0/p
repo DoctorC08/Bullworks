@@ -24,12 +24,12 @@ boundaryField
     inlet
     {
         type            freestreamPressure;
-        freestreamValue 0;
+        freestreamValue uniform 0;
     }
     outlet
     {
         type            freestreamPressure;
-        freestreamValue 0;
+        freestreamValue uniform 0;
     }
     IBF_snappyHexMesh
     {
@@ -38,7 +38,7 @@ boundaryField
     ".*Wall"
     {
         type            freestreamPressure;
-        freestreamValue 0;
+        freestreamValue uniform 0;
     }
 }
 

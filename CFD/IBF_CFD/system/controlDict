@@ -48,10 +48,15 @@ timePrecision   6;
 
 runTimeModifiable true; /* This allows for modification in the middle of a run */
 
-The best way to get lift and drag coefficients (C_L and C_D) from a simulation in OpenFOAM is to use the forceCoeffs function object. This tool is designed specifically for this purpose and automatically calculates the coefficients during the simulation.
+/*
+The best way to get lift and drag coefficients (C_L and C_D) from a simulation in OpenFOAM is 
+to use the forceCoeffs function object. This tool is designed specifically for this purpose 
+and automatically calculates the coefficients during the simulation.
 
 Setting up forceCoeffs
-To enable the forceCoeffs function object, you need to add a block to your system/controlDict file. Here is an example of what that block looks like:
+To enable the forceCoeffs function object, you need to add a block to 
+your system/controlDict file. Here is an example of what that block looks like:
+*/
 
 functions
 {

@@ -31,7 +31,7 @@ boundaryField
     outlet
     {
         type            freestream;
-        value           ${omegaValue}; 
+        freestreamValue  ${omegaValue}; 
     }
     IBF_snappyHexMesh
     {

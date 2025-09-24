@@ -17,7 +17,7 @@ FoamFile
 
 dimensions      [0 1 -1 0 0 0 0];
 
-UValue          uniform (0, 13.4, 0); /* About 30 mph */
+UValue          uniform (0 13.4 0); /* About 30 mph */
 
 internalField   ${UValue};
 

@@ -41,7 +41,7 @@ boundaryField
     ".*Wall"
     {
         type            freestream;
-        value           ${omegaValue}; 
+        freestreamValue ${omegaValue}; 
     }
 }
 // ************************************************************************* //

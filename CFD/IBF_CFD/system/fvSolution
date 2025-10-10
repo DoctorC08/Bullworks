@@ -49,6 +49,7 @@ solvers
         solver          GAMG;
         tolerance       1e-07;
         relTol          0;
+        smoother        GaussSeidel;
     }
 }
 

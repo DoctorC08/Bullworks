@@ -40,7 +40,7 @@ writeFormat     binary; /* Use binary to conserve storage*/
 
 writePrecision  6;
 
-writeCompression on;
+writeCompression off;
 
 timeFormat      general;
 

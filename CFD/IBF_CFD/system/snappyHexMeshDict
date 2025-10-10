@@ -113,7 +113,7 @@ castellatedMeshControls
         IBF_snappyHexMesh
         {
             // Surface-wise min and max refinement level
-            level (7 9); // Original (6 8)
+            level (5 7); // Original (6 8)
             cellZone IBF_object;
         }
     }
@@ -140,7 +140,7 @@ castellatedMeshControls
         refinementBox
         {
             mode inside;
-            levels ((7 7));
+            levels ((5 5));
         }
     }
 

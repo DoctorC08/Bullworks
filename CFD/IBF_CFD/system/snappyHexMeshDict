@@ -80,7 +80,7 @@ castellatedMeshControls
     // Number of buffer layers between different levels.
     // 1 means normal 2:1 refinement restriction, larger means slower
     // refinement.
-    nCellsBetweenLevels 3;
+    nCellsBetweenLevels 1;
 
 
 
@@ -226,7 +226,7 @@ addLayersControls
 
     // When not to extrude surface. 0 is flat surface, 90 is when two faces
     // are perpendicular
-    featureAngle 40;
+    featureAngle 60;
 
     // At non-patched sides allow mesh to slip if extrusion direction makes
     // angle larger than slipFeatureAngle. Default is 0.5*featureAngle.
@@ -246,7 +246,7 @@ addLayersControls
     nSmoothThickness 2;
 
     // Stop layer growth on highly warped cells
-    maxFaceThicknessRatio 0.5;
+    maxFaceThicknessRatio 0.3;
 
     // Reduce layer growth where ratio thickness to medial
     // distance is large
@@ -268,7 +268,7 @@ addLayersControls
 meshQualityControls
 {
     //- Maximum non-orthogonality allowed. Set to 180 to disable.
-    maxNonOrtho          45;
+    maxNonOrtho          60;
 
     //- Max skewness allowed. Set to <0 to disable.
     maxBoundarySkewness  20;

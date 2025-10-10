@@ -198,7 +198,7 @@ addLayersControls
     {
         IBF_snappyHexMesh
         {
-            nSurfaceLayers 10;
+            nSurfaceLayers 8;
         }
     }
 
@@ -209,7 +209,7 @@ addLayersControls
     // is the thickness of the layer furthest away from the wall.
     // Relative to undistorted size of cell outside layer.
     // See relativeSizes parameter.
-    finalLayerThickness 0.00078;
+    finalLayerThickness 0.000384;
 
     // Minimum thickness of cell layer. If for any reason layer
     // cannot be above minThickness do not add layer.
@@ -226,7 +226,7 @@ addLayersControls
 
     // When not to extrude surface. 0 is flat surface, 90 is when two faces
     // are perpendicular
-    featureAngle 60;
+    featureAngle 75;
 
     // At non-patched sides allow mesh to slip if extrusion direction makes
     // angle larger than slipFeatureAngle. Default is 0.5*featureAngle.
@@ -234,7 +234,7 @@ addLayersControls
 
     // Maximum number of snapping relaxation iterations. Should stop
     // before upon reaching a correct mesh.
-    nRelaxIter 3;
+    nRelaxIter 15;
 
     // Number of smoothing iterations of surface normals
     nSmoothSurfaceNormals 1;
@@ -246,11 +246,11 @@ addLayersControls
     nSmoothThickness 2;
 
     // Stop layer growth on highly warped cells
-    maxFaceThicknessRatio 0.3;
+    maxFaceThicknessRatio 0.25;
 
     // Reduce layer growth where ratio thickness to medial
     // distance is large
-    maxThicknessToMedialRatio 0.3;
+    maxThicknessToMedialRatio 0.2;
 
     // Angle used to pick up medial axis points
     minMedialAxisAngle 90;
@@ -268,10 +268,10 @@ addLayersControls
 meshQualityControls
 {
     //- Maximum non-orthogonality allowed. Set to 180 to disable.
-    maxNonOrtho          60;
+    maxNonOrtho          75;
 
     //- Max skewness allowed. Set to <0 to disable.
-    maxBoundarySkewness  20;
+    maxBoundarySkewness  50;
     maxInternalSkewness  4;
 
     //- Max concaveness allowed. Angle (in degrees) below which concavity

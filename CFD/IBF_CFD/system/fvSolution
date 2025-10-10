@@ -38,12 +38,13 @@ solvers
 
     "(U|k)"
     {
-        solver          smoothSolver;
-        smoother        GaussSeidel;
+        solver smoothSolver;
+        smoother GaussSeidel;
         tolerance       1e-08;
         relTol          0.1;
     }
-    omega  // This is the missing entry
+    
+    omega  
     {
         solver          GAMG;
         tolerance       1e-07;
@@ -54,6 +55,8 @@ solvers
 SIMPLE
 {
     nNonOrthogonalCorrectors 2;
+    pRefCell       0;
+    pRefValue      0;
 }
 
 relaxationFactors

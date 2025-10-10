@@ -68,7 +68,7 @@ castellatedMeshControls
     // few cells. This setting will cause refinement to stop if <= minimumRefine
     // are selected for refinement. Note: it will at least do one iteration
     // (unless the number of cells to refine is 0)
-    minRefinementCells 10;
+    minRefinementCells 200;
 
     // Allow a certain level of imbalance during refining
     // (since balancing is quite expensive)
@@ -113,7 +113,7 @@ castellatedMeshControls
         IBF_snappyHexMesh
         {
             // Surface-wise min and max refinement level
-            level (5 7); // Original (6 8)
+            level (4 6); // Original (6 8)
             cellZone IBF_object;
         }
     }
@@ -140,7 +140,7 @@ castellatedMeshControls
         refinementBox
         {
             mode inside;
-            levels ((5 5));
+            levels ((3, 4));
         }
     }
 
@@ -191,7 +191,7 @@ addLayersControls
 {
     // Are the thickness parameters below relative to the undistorted
     // size of the refined cell outside layer (true) or absolute sizes (false).
-    relativeSizes true;
+    relativeSizes false;
 
     // Per final patch (so not geometry!) the layer information
     layers
@@ -209,12 +209,12 @@ addLayersControls
     // is the thickness of the layer furthest away from the wall.
     // Relative to undistorted size of cell outside layer.
     // See relativeSizes parameter.
-    finalLayerThickness 0.05;
+    finalLayerThickness 0.00078;
 
     // Minimum thickness of cell layer. If for any reason layer
     // cannot be above minThickness do not add layer.
     // Relative to undistorted size of cell outside layer.
-    minThickness 0.01;
+    minThickness 0.00003;
 
     // If points get not extruded do nGrow layers of connected faces that are
     // also not grown. This helps convergence of the layer addition process
@@ -226,7 +226,7 @@ addLayersControls
 
     // When not to extrude surface. 0 is flat surface, 90 is when two faces
     // are perpendicular
-    featureAngle 100;
+    featureAngle 40;
 
     // At non-patched sides allow mesh to slip if extrusion direction makes
     // angle larger than slipFeatureAngle. Default is 0.5*featureAngle.
@@ -268,7 +268,7 @@ addLayersControls
 meshQualityControls
 {
     //- Maximum non-orthogonality allowed. Set to 180 to disable.
-    maxNonOrtho          65;
+    maxNonOrtho          45;
 
     //- Max skewness allowed. Set to <0 to disable.
     maxBoundarySkewness  20;

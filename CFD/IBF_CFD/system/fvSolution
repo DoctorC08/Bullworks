@@ -40,7 +40,7 @@ solvers
     {
         solver smoothSolver;
         smoother GaussSeidel;
-        tolerance       1e-08;
+        tolerance       1e-07;
         relTol          0.1;
         limit           1.0;
     }

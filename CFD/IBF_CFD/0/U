@@ -39,8 +39,9 @@ boundaryField
     }
     ".*Wall"
     {
-        type            freestream;
-        freestreamValue ${UValue};
+        // type            freestream;
+        // freestreamValue ${UValue};
+        type            slip;
     }
 }
 

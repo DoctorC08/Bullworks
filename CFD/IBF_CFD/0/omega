@@ -41,8 +41,9 @@ boundaryField
     }
     ".*Wall"
     {
-        type            freestream;
-        freestreamValue ${omegaValue}; 
+        // type            freestream;
+        // freestreamValue ${omegaValue}; 
+        type             zeroGradient;
     }
 }
 // ************************************************************************* //

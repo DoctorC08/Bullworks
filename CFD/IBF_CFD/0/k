@@ -33,10 +33,11 @@ boundaryField
     {
         type            zeroGradient;
     }
-    ".*Wall" // boundaries
+    ".*Wall" 
     {
-        type            freestream;
-        freestreamValue ${kValue};
+        // type            freestream;
+        // freestreamValue ${kValue};
+        type             zeroGradient;
     }
     IBF_snappyHexMesh
     {

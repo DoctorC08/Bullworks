@@ -37,8 +37,9 @@ boundaryField
     }
     ".*Wall"
     {
-        type            freestreamPressure;
-        freestreamValue uniform 0;
+        // type            freestreamPressure;
+        // freestreamValue uniform 0;
+        type            zeroGradient;
     }
 }
 

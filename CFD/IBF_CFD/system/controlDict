@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-solver          incompressibleFluid;
+solver          simpleFoam;
 
 startFrom       startTime; /* Set to latestTime if we want to pause and resume*/
 
@@ -32,7 +32,7 @@ maxCo           0.5;
 
 writeControl    adjustableRunTime;
 
-writeInterval   0.1;
+writeInterval   0.01;
 
 purgeWrite      200; /* For IBF it's about 500mb per file, so let's cap at 100gb stored*/
 

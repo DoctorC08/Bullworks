@@ -17,7 +17,8 @@ FoamFile
 
 dimensions      [0 2 -2 0 0 0 0];
 
-kValue          uniform 0.012;
+// kValue          uniform 0.012;
+kValue          uniform 0.704; 
 
 internalField   ${kValue};
 
@@ -32,7 +33,7 @@ boundaryField
     {
         type            zeroGradient;
     }
-    ".*Wall"
+    ".*Wall" // boundaries
     {
         type            freestream;
         freestreamValue ${kValue};

@@ -17,7 +17,8 @@ FoamFile
 
 dimensions      [0 0 -1 0 0 0 0];
 
-omegaValue      uniform 2.85;
+// omegaValue      uniform 2.85;
+omegaValue      uniform 133.2;  
 
 internalField   ${omegaValue};
 

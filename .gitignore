@@ -27,7 +27,7 @@ processor*
 !0/
 
 # Reconstructed polyMesh
-*/*/polyMesh
+**/polyMesh
 
 # Other temporary or large files
 log*
@@ -44,3 +44,6 @@ CFD/IBF_CFD/constant/polyMesh/faces
 CFD/IBF_CFD/constant/polyMesh/neighbour
 CFD/IBF_CFD/constant/polyMesh/owner
 CFD/IBF_CFD/constant/polyMesh/points
+
+# featureEdgeMesh files
+*/constant/triSurface/featureEdgeMesh

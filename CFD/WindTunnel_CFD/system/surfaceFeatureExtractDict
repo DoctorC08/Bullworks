@@ -1,0 +1,57 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312 (or your version)               |
+|   \\  /    A nd           | Web:      www.OpenFOAM.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      surfaceFeatureExtractDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+"inlet.stl"
+{
+    // How to obtain raw features (extractFromFile or extractFromSurface)
+    extractionMethod    extractFromSurface;
+    extractFromSurfaceCoeffs { includedAngle   150; }
+    writeObj            yes;
+}
+
+"outlet.stl"
+{
+    // How to obtain raw features (extractFromFile or extractFromSurface)
+    extractionMethod    extractFromSurface;
+    extractFromSurfaceCoeffs { includedAngle   150; }
+    writeObj            yes;
+}
+
+"diffuser.stl"
+{
+    // How to obtain raw features (extractFromFile or extractFromSurface)
+    extractionMethod    extractFromSurface;
+    extractFromSurfaceCoeffs { includedAngle   150; }
+    writeObj            yes;
+}
+
+"nozzle.stl"
+{
+    // How to obtain raw features (extractFromFile or extractFromSurface)
+    extractionMethod    extractFromSurface;
+    extractFromSurfaceCoeffs { includedAngle   150; }
+    writeObj            yes;
+}
+
+"testSection.stl"
+{
+    // How to obtain raw features (extractFromFile or extractFromSurface)
+    extractionMethod    extractFromSurface;
+    extractFromSurfaceCoeffs { includedAngle   150; }
+    writeObj            yes;
+}
+
+// ************************************************************************* //

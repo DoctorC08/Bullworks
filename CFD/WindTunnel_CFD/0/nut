@@ -28,20 +28,12 @@ boundaryField
     }
     outlet
     {
-        type            zeroGradient;
-    }
-    ".*Wall"
-    {
         type            calculated;
         value           uniform 0;
     }
-    IBF_snappyHexMesh
+    walls
     {
         type            nutkWallFunction;
         value           uniform 0;
-    }
-    defaultFaces
-    {
-        type            calculated;
     }
 }

@@ -18,7 +18,7 @@ FoamFile
 dimensions      [0 2 -2 0 0 0 0];
 
 // kValue          uniform 0.012;
-kValue          uniform 0.704; 
+kValue          uniform 0.027; 
 
 internalField   ${kValue};
 
@@ -33,21 +33,10 @@ boundaryField
     {
         type            zeroGradient;
     }
-    ".*Wall" 
+    walls
     {
-        // type            freestream;
-        // freestreamValue ${kValue};
-        type             zeroGradient;
-    }
-    IBF_snappyHexMesh
-    {
-        type            kqRWallFunction;
-        value           ${kValue};
-    }
-    defaultFaces
-    {
-        type            freestream;
-        freestreamValue ${kValue};
+        type             kqRWallFunction;
+        value           ${internalField};
     }
 }
 

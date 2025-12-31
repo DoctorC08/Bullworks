@@ -16,25 +16,25 @@ FoamFile
 
 solver          simpleFoam;
 
-startFrom       latestTime; /* Set to latestTime if we want to pause and resume*/
+// startFrom       latestTime; /* Set to latestTime if we want to pause and resume*/
 
-// startTime       0;
+startTime       0;
 
 stopAt          endTime;
 
-endTime         2; /* Run for n seconds */
+endTime         500; /* Run for n seconds */
 
-deltaT          0.001;
+deltaT          1;
 
-adjustTimeStep  true;
+// adjustTimeStep  true;
 
-maxCo           0.5;
+// maxCo           0.5;
 
 writeControl    adjustableRunTime;
 
-writeInterval   0.01;
+writeInterval   1; /* Write every n seconds */
 
-purgeWrite      200; /* For IBF it's about 250mb per file, so cap at 50gb stored*/
+purgeWrite      1000; /* For IBF it's about 250mb per file, so cap at 50gb stored*/
 
 writeFormat     binary; /* Use binary to conserve storage*/
 
@@ -49,19 +49,15 @@ timePrecision   6;
 runTimeModifiable true; /* This allows for modification in the middle of a run */
 
 /*
-The best way to get lift and drag coefficients (C_L and C_D) from a simulation in OpenFOAM is 
-to use the forceCoeffs function object. This tool is designed specifically for this purpose 
-and automatically calculates the coefficients during the simulation.
-
 Setting up forceCoeffs
 To enable the forceCoeffs function object, you need to add a block to 
 your system/controlDict file. Here is an example of what that block looks like:
 */
 
-functions
-{
-  #include "functions/forceCoeffs.cfg"
-  #include "functions/wallShearStress.cfg"
-}
+// functions
+// {
+//   #include "functions/forceCoeffs.cfg"
+//   #include "functions/wallShearStress.cfg"
+// }
 
 // ************************************************************************* //

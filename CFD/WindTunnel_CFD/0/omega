@@ -18,7 +18,7 @@ FoamFile
 dimensions      [0 0 -1 0 0 0 0];
 
 // omegaValue      uniform 2.85;
-omegaValue      uniform 133.2;  
+omegaValue      uniform 2.14;  
 
 internalField   ${omegaValue};
 
@@ -31,19 +31,12 @@ boundaryField
     }
     outlet
     {
-        type            freestream;
-        freestreamValue  ${omegaValue}; 
+        type            zeroGradient;
     }
-    IBF_snappyHexMesh
+    walls
     {
         type            omegaWallFunction;
-        value           ${omegaValue}; // Initial guess, wall function will override
-    }
-    ".*Wall"
-    {
-        // type            freestream;
-        // freestreamValue ${omegaValue}; 
-        type             zeroGradient;
+        value           ${internalField}; 
     }
 }
 // ************************************************************************* //

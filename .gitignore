@@ -46,4 +46,4 @@ CFD/IBF_CFD/constant/polyMesh/owner
 CFD/IBF_CFD/constant/polyMesh/points
 
 # featureEdgeMesh files
-*/constant/triSurface/featureEdgeMesh
+*/constant/extendedFeatureEdgeMesh

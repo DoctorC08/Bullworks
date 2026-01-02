@@ -22,7 +22,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         500; /* Run for n seconds */
+endTime         150; /* Run for n seconds */
 
 deltaT          1;
 
@@ -48,16 +48,9 @@ timePrecision   6;
 
 runTimeModifiable true; /* This allows for modification in the middle of a run */
 
-/*
-Setting up forceCoeffs
-To enable the forceCoeffs function object, you need to add a block to 
-your system/controlDict file. Here is an example of what that block looks like:
-*/
-
-// functions
-// {
-//   #include "functions/forceCoeffs.cfg"
-//   #include "functions/wallShearStress.cfg"
-// }
+functions
+{
+  #include "functions/velocityUniformity.cfg"
+}
 
 // ************************************************************************* //

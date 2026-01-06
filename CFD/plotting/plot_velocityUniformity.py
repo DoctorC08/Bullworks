@@ -4,7 +4,7 @@ import glob
 import re
 
 def read_openfoam_vector_dat(filepath):
-    """Reads OpenFOAM .dat file and parses '(x y z)' vector strings."""
+    # Read openFoam vector .dat files
     data = []
     with open(filepath, 'r') as f:
         for line in f:
@@ -18,12 +18,12 @@ def read_openfoam_vector_dat(filepath):
     return df
 
 def read_openfoam_scalar_dat(filepath):
-    """Reads standard scalar .dat files."""
+    # Read openFoam scalar .dat files"
     df = pd.read_csv(filepath, sep='\s+', comment='#', header=None)
     df.columns = ['Time', 'Value']
     return df
 
-# File discovery
+# Get files
 uniformity_path = glob.glob('CFD/WindTunnel_CFD/postProcessing/velocityUniformity/0/surfaceFieldValue.dat')[0]
 mean_vel_path = glob.glob('CFD/WindTunnel_CFD/postProcessing/meanVelocity/0/surfaceFieldValue.dat')[0]
 
@@ -37,7 +37,7 @@ final_ux = df_v['Ux'].iloc[-1]
 final_uy = df_v['Uy'].iloc[-1]
 final_uz = df_v['Uz'].iloc[-1]
 
-# Print summary to console
+# Print summary 
 print("-" * 30)
 print(f"FINAL VALUES at t = {final_time}s")
 print("-" * 30)
@@ -63,10 +63,9 @@ line_ux = ax2.plot(df_v['Time'], df_v['Ux'], label='Ux', linestyle='-')
 line_uy = ax2.plot(df_v['Time'], df_v['Uy'], label='Uy', linestyle='--')
 line_uz = ax2.plot(df_v['Time'], df_v['Uz'], label='Uz', linestyle=':')
 
-# Set Y-axis ticks from absolute min to absolute max
 v_min = df_v[['Ux', 'Uy', 'Uz']].min().min() - 1
 v_max = df_v[['Ux', 'Uy', 'Uz']].max().max() + 1
-ax2.set_ylim(v_min * 0.95, v_max * 1.05) # Add 5% padding so text isn't cut off
+ax2.set_ylim(v_min * 0.95, v_max * 1.05)    
 ax2.set_yticks([v_min, v_max])
 ax2.set_ylabel('Mean Velocity Components (m/s)')
 

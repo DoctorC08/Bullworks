@@ -2,7 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Define path to data file
-data_file = 'IBF_CFD/postProcessing/forceCoeffs1/0.01/coefficient.dat'
+# data_file = 'IBF_CFD/postProcessing/forceCoeffs1/0.01/coefficient.dat'
 data_file = 'CFD/IBF_CFD/postProcessing/forceCoeffs1/0.01/coefficient.dat'
 
 # Read data, skipping the non-data header lines (#)

@@ -22,7 +22,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         150; /* Run for n seconds */
+endTime         200; /* Run for n seconds */
 
 deltaT          1;
 
@@ -51,6 +51,7 @@ runTimeModifiable true; /* This allows for modification in the middle of a run *
 functions
 {
   #include "functions/velocityUniformity.cfg"
+  #include "functions/turbulenceIntensity.cfg"
 }
 
 // ************************************************************************* //

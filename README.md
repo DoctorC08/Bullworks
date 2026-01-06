@@ -1,5 +1,7 @@
 # Bullworks
 
+This is a collection of files for Bullworks engineering club and contains openFOAM computational fluid dynamics (CFD) setups for plane and wind tunnels designed in this club. 
+
 ## OpenFoam Workflow
 1) Open up CFD Directory and run ```./openfoam-docker```, open appropriate case dir
 
@@ -17,13 +19,11 @@
     - Add location in Mesh s.t. it's in the airflow space
     - Optional: run ```surfaceFeatureExtract``` 
 
-5) 
+5) Run ```snappyHexMesh```
 
-6) Run ```mpirun -np (insert num cores) snappyHexMesh -parallel -overwrite``` then ```reconstructPar```
-
-7) Setup 0, constant, and system directory 
+6) Setup 0, constant, and system directory 
   
-8) Run CFD: ```simpleFoam```
+7) Run CFD: ```simpleFoam```
    Optional: ```renumberMesh -overwrite``` (running before will boost performance)
 
 ### Running OpenFoam on multiple cores

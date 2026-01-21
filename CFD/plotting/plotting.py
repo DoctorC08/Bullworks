@@ -8,7 +8,7 @@ import re
 
 class openFoamPlotter:
     def __init__(self):
-        data = pd.DataFrame()
+        self.data = pd.DataFrame()
     
     def gather_data(self, file_names):
         df = pd.DataFrame()
@@ -54,7 +54,7 @@ class openFoamPlotter:
         return col_names
     
     # plotting utils
-    def plot(self, col_name):
+    def plot(self, col_name, lims=None):
         
         col_data = self.data[col_name]
         plt.figure(figsize=(10, 6))
@@ -66,7 +66,8 @@ class openFoamPlotter:
         plt.grid(True, linestyle='--', alpha=0.7)
         plt.legend()
         
-        plt.ylim(0, 2) 
+        if lims is not None:
+            plt.ylim(*lims) 
 
         plt.show()
                     
@@ -79,3 +80,4 @@ if __name__ == '__main__':
     plotter = openFoamPlotter()
     data = plotter.gather_data(file_paths)
     print(data)
+    plotter.plot('uniformity(U)', lims=[0.975, 1])

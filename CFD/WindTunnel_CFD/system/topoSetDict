@@ -1,0 +1,36 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.2.2                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+
+actions
+(
+    {
+        name    fanCellZone;
+        type    cellZoneSet;
+        action  new;
+        source  cylinderToCell;
+        set     fanCellSet;
+        sourceInfo
+        {
+            p1      (2 .61695197 .26437480); // Start of fan axis
+            p2      (2.5 .61695197 .26437480); // End of fan axis
+            radius  0.475;
+        }
+    }
+);
+
+
+// ************************************************************************* //

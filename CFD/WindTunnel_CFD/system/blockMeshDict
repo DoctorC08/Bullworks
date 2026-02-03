@@ -35,54 +35,67 @@ blocks
 
 boundary
 (
-    frontWall
+    tempWalls
     {
         type patch;
         faces
         (
-            (1 5 6 2)
+            (1 5 6 2) // front
+            (3 2 6 7) // back
+            (0 4 5 1) // inlet
+            (0 3 7 4) // outlet
+            (4 7 6 5) // lower
+            (0 1 2 3) // upper
         );
     }
-    backWall
-    {
-        type patch;
-        faces
-        (
-            (3 2 6 7)
-        );
-    }
-    inlet
-    {
-        type patch;
-        faces
-        (
-            (0 4 5 1)
-        );
-    }
-    outlet
-    {
-        type patch;
-        faces
-        (
-            (0 3 7 4)
-        );
-    }
-    lowerWall
-    {
-        type patch;
-        faces
-        (
-            (4 7 6 5)
-        );
-    }
-    upperWall
-    {
-        type patch;
-        faces
-        (
-            (0 1 2 3)
-        );
-    }
+    // tempWalls
+    // {
+    //     type patch;
+    //     faces
+    //     (
+    //         (1 5 6 2)
+    //     );
+    // }
+    // backWall
+    // {
+    //     type patch;
+    //     faces
+    //     (
+    //         (3 2 6 7)
+    //     );
+    // }
+    // inlet
+    // {
+    //     type patch;
+    //     faces
+    //     (
+    //         (0 4 5 1)
+    //     );
+    // }
+    // outlet
+    // {
+    //     type patch;
+    //     faces
+    //     (
+    //         (0 3 7 4)
+    //     );
+    // }
+    // lowerWall
+    // {
+    //     type patch;
+    //     faces
+    //     (
+    //         (4 7 6 5)
+    //     );
+    // }
+    // upperWall
+    // {
+    //     type patch;
+    //     faces
+    //     (
+    //         (0 1 2 3)
+    //     );
+    // }
 );
 
 // ************************************************************************* //

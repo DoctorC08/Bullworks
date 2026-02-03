@@ -32,6 +32,15 @@ geometry
     diffuser.stl  { type triSurfaceMesh; name walls;  }
     nozzle.stl  { type triSurfaceMesh; name walls;  }
     testSection.stl  { type triSurfaceMesh; name walls;  }
+
+    // Define fan volume
+    fanRefinementVolume 
+    {
+        type    searchableCylinder;
+        point1  (2 .61695197 .26437480); // Match your fan origin
+        point2  (2.5 .61695197 .26437480); 
+        radius  0.5;
+    }
 };
 
 
@@ -47,14 +56,14 @@ castellatedMeshControls
     // If local number of cells is >= maxLocalCells on any processor
     // switches from from refinement followed by balancing
     // (current method) to (weighted) balancing before refinement.
-    maxLocalCells 100000;
+    maxLocalCells 1000000;
 
     // Overall cell limit (approximately). Refinement will stop immediately
     // upon reaching this number so a refinement level might not complete.
     // Note that this is the number of cells before removing the part which
     // is not 'visible' from the keepPoint. The final number of cells might
     // actually be a lot less.
-    maxGlobalCells 1000000;
+    maxGlobalCells 2000000;
 
     // The surface refinement loop might spend lots of iterations refining just a
     // few cells. This setting will cause refinement to stop if <= minimumRefine
@@ -153,6 +162,17 @@ castellatedMeshControls
             mode inside;
             levels ((1.0 3)); 
         }
+        fanRefinementVolume 
+        {
+            mode    inside;
+            levels  ((1.0 5)); // Increase refinement level here
+        }
+        diffuser
+        {
+            mode    distance;
+            // Refine the air near the walls and the core flow
+            levels  ((0.1 4) (0.5 3)); 
+        }
     }
 
 
@@ -209,7 +229,7 @@ addLayersControls
     {
         "nozzle|testSection|diffuser" 
         {
-            nSurfaceLayers 5;
+            nSurfaceLayers 8;
         }
     }
 
@@ -221,7 +241,7 @@ addLayersControls
     // Relative to undistorted size of cell outside layer.
     // See relativeSizes parameter.
     // finalLayerThickness 0.001;
-    finalLayerThickness 0.5;
+    finalLayerThickness 0.3;
 
     // Minimum thickness of cell layer. If for any reason layer
     // cannot be above minThickness do not add layer.

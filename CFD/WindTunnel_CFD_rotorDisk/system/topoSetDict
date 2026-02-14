@@ -25,9 +25,9 @@ actions
         set     fanCellSet;
         sourceInfo
         {
-            p1      (2 .61695197 .26437480); // Start of fan axis
-            p2      (2.5 .61695197 .26437480); // End of fan axis
-            radius  0.475;
+            p1      (5.15 .61695197 .26437480); // Start of fan axis
+            p2      (5.25 .61695197 .26437480); // End of fan axis
+            radius  0.5;
         }
     }
 );

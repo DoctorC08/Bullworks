@@ -20,7 +20,7 @@ This is a collection of files for Bullworks engineering club and contains openFO
     - Optional: run ```surfaceFeatureExtract``` 
 
 5) Run ```snappyHexMesh```
-    Possible need to run ```topoSet``` and ```setsToZones```
+    Possible need to run ```topoSet``` and ```setsToZones``` (if needed)
 
 6) Setup 0, constant, and system directory 
   

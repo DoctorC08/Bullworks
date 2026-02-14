@@ -1,0 +1,238 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2506                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      fvOptions;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+disk
+{
+    type            rotorDisk;
+    active          true;
+    selectionMode   cellZone;
+    cellZone        fanCellZone;
+    
+    // Physical Parameters
+    
+    origin          (5.2 .61695197 .26437480);
+    axis            (1 0 0);
+    refDirection    (0 1 0); // Defines the 0-degree azimuth (vertical/up)
+    nBlades         3;
+    
+    rpm             1500;
+    tipEffect       0.96;
+    
+    fields          (U);
+    inletFlowType   local;
+    rhoRef          1.225;
+
+    geometryMode    specified;
+    
+    trimModel       fixedTrim; 
+    fixedTrimCoeffs
+    {
+        theta0          0; // Collective pitch offset [deg]
+        theta1c         0; // Lateral cyclic pitch [deg]
+        theta1s         0; // Longitudinal cyclic pitch [deg]
+    }
+    
+    flapCoeffs
+    {
+        beta0           0; // Coning angle
+        beta1c          0; // 1st harmonic lateral
+        beta1s          0; // 1st harmonic longitudinal
+        beta2c          0; // 2nd harmonic lateral
+        beta2s          0; // 2nd harmonic longitudinal
+    }
+
+    blade
+        {
+            data
+            (
+                // profile    (r/R    chord[m]   twist[deg])
+                (root         (0.15   0.10       35))    // Root - high twist
+                (mid1         (0.30   0.09       25))    // Inner blade
+                (mid2         (0.50   0.08       18))    // Mid blade
+                (mid3         (0.70   0.06       12))    // Outer blade
+                (tip          (0.95   0.04        6))    // Tip - low twist
+            );
+        }
+
+        // Aerodynamic profiles (Cl, Cd vs angle of attack)
+        profiles
+        {
+            root
+            {
+                type    lookup;
+                data
+                (
+                    // alpha[deg]  Cl      Cd
+                    (-180          0.0     0.50)
+                    (-90          -0.2     1.20)
+                    (-30          -0.8     0.40)
+                    (-20          -1.0     0.20)
+                    (-15          -1.2     0.12)
+                    (-10          -0.9     0.08)
+                    (-5           -0.45    0.04)
+                    (0             0.0     0.02)    // Zero lift angle
+                    (5             0.5     0.03)
+                    (10            1.0     0.05)
+                    (12            1.15    0.07)
+                    (15            1.25    0.12)
+                    (18            1.20    0.20)    // Near stall
+                    (20            1.00    0.35)    // Post-stall
+                    (25            0.70    0.60)
+                    (30            0.50    0.80)
+                    (90            0.0     1.20)
+                    (180           0.0     0.50)
+                );
+            }
+            
+            mid1
+            {
+                type    lookup;
+                data
+                (
+                    // alpha[deg]  Cl      Cd
+                    (-180          0.0     0.45)
+                    (-90          -0.2     1.15)
+                    (-20          -1.05    0.18)
+                    (-15          -1.25    0.10)
+                    (-10          -0.95    0.06)
+                    (-5           -0.48    0.03)
+                    (0             0.0     0.015)
+                    (5             0.55    0.025)
+                    (10            1.1     0.04)
+                    (12            1.25    0.06)
+                    (15            1.35    0.10)
+                    (18            1.30    0.18)
+                    (20            1.10    0.32)
+                    (25            0.75    0.55)
+                    (90            0.0     1.15)
+                    (180           0.0     0.45)
+                );
+            }
+            
+            mid2
+            {
+                type    lookup;
+                data
+                (
+                    // alpha[deg]  Cl      Cd
+                    (-180          0.0     0.40)
+                    (-90          -0.2     1.10)
+                    (-20          -1.1     0.16)
+                    (-15          -1.3     0.09)
+                    (-10          -1.0     0.05)
+                    (-5           -0.5     0.025)
+                    (0             0.0     0.012)
+                    (5             0.6     0.02)
+                    (10            1.2     0.035)
+                    (12            1.35    0.05)
+                    (15            1.45    0.09)
+                    (18            1.40    0.16)
+                    (20            1.15    0.30)
+                    (90            0.0     1.10)
+                    (180           0.0     0.40)
+                );
+            }
+            
+            mid3
+            {
+                type    lookup;
+                data
+                (
+                    // alpha[deg]  Cl      Cd
+                    (-180          0.0     0.38)
+                    (-90          -0.2     1.08)
+                    (-20          -1.12    0.15)
+                    (-15          -1.32    0.08)
+                    (-10          -1.05    0.045)
+                    (-5           -0.52    0.022)
+                    (0             0.0     0.011)
+                    (5             0.62    0.018)
+                    (10            1.25    0.032)
+                    (12            1.40    0.045)
+                    (15            1.50    0.08)
+                    (18            1.42    0.15)
+                    (20            1.18    0.28)
+                    (90            0.0     1.08)
+                    (180           0.0     0.38)
+                );
+            }
+            
+            tip
+            {
+                type    lookup;
+                data
+                (
+                    // alpha[deg]  Cl      Cd
+                    (-180          0.0     0.35)
+                    (-90          -0.2     1.05)
+                    (-20          -1.08    0.14)
+                    (-15          -1.28    0.075)
+                    (-10          -1.02    0.042)
+                    (-5           -0.51    0.020)
+                    (0             0.0     0.010)
+                    (5             0.60    0.017)
+                    (10            1.20    0.030)
+                    (12            1.38    0.042)
+                    (15            1.48    0.075)
+                    (18            1.38    0.14)
+                    (20            1.15    0.26)
+                    (90            0.0     1.05)
+                    (180           0.0     0.35)
+                );
+            }
+        }
+
+
+
+    // blade
+    // {    
+    //     /* profiles        (leaf leaf leaf leaf); */
+
+    //     data
+    //     (
+    //         // radius   chord   twist (deg)
+    //         (leaf   (0.1    0.08  25))
+    //         (leaf   (0.25   0.07  18)) 
+    //         (leaf   (0.4    0.05  12))
+    //         (leaf   (0.5    0.04  8))
+    //     );   
+    // }
+
+    // profiles
+    //     {
+    //         leaf
+    //         {
+    //             type            lookup;
+    //             data
+    //             (
+    //                 (-180      0.0    0.5)
+    //                 (-90       0.0    1.2)  // Flat plate drag
+    //                 (-20      -0.6    0.2)
+    //                 (-10      -0.4    0.05)
+    //                 (0         0.0    0.02) // Symmetric is more stable for testing
+    //                 (10        1.0    0.05)
+    //                 (15        1.3    0.10)
+    //                 (20        0.8    0.30)
+    //                 (90        0.0    1.2)  // Stall plateau
+    //                 (180       0.0    0.5)
+    //             );
+    //         }
+    //     }
+    
+} 
+
+
+// ************************************************************************* //

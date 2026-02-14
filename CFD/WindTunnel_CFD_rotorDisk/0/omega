@@ -1,14 +1,15 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  v2212                                 |
+|  \\    /   O peration     | Version:  2506                                  |
 |   \\  /    A nd           | Website:  www.openfoam.com                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
     version     2.0;
-    format      ascii;
+    format      binary;
+    arch        "LSB;label=32;scalar=64";
     class       volScalarField;
     location    "0";
     object      omega;
@@ -17,17 +18,14 @@ FoamFile
 
 dimensions      [0 0 -1 0 0 0 0];
 
-// omegaValue      uniform 2.85;
-omegaValue      uniform 2.14;  
-
-internalField   ${omegaValue};
+internalField   uniform 2.14;
 
 boundaryField
 {
     inlet
     {
         type            fixedValue;
-        value           ${omegaValue};
+        value           uniform 2.14;
     }
     outlet
     {
@@ -36,7 +34,11 @@ boundaryField
     walls
     {
         type            omegaWallFunction;
-        value           ${internalField}; 
+        blending        binomial;
+        n               2;
+        value           uniform 2.14;
     }
 }
+
+
 // ************************************************************************* //

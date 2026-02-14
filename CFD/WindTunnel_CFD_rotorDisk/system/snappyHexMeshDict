@@ -1,9 +1,9 @@
 /*--------------------------------*- C++ -*----------------------------------*\
-  =========                 |
-  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
-   \\    /   O peration     | Website:  https://openfoam.org
-    \\  /    A nd           | Version:  13
-     \\/     M anipulation  |
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2506                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
@@ -37,8 +37,8 @@ geometry
     fanRefinementVolume 
     {
         type    searchableCylinder;
-        point1  (2 .61695197 .26437480); // Match your fan origin
-        point2  (2.5 .61695197 .26437480); 
+        point1  (5.15 .61695197 .26437480); // Match your fan origin
+        point2  (5.25 .61695197 .26437480); 
         radius  0.5;
     }
 };
@@ -165,7 +165,7 @@ castellatedMeshControls
         fanRefinementVolume 
         {
             mode    inside;
-            levels  ((1.0 5)); // Increase refinement level here
+            levels  ((1.0 4)); // Increase refinement level here
         }
         diffuser
         {
